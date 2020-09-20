@@ -12,7 +12,7 @@ class FavoritesController extends Controller
         return back();
     }
     
-    public function delete($id)
+    public function destroy($id)
     {
         \Auth::user()->unfavorite($id);
         return back();

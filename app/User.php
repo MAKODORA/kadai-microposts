@@ -190,17 +190,11 @@ class User extends Authenticatable
             return false;
         }
     }
-
-    /**
-     * 指定された $userIdのユーザをこのユーザがフォロー中であるか調べる。フォロー中ならtrueを返す。
-     *
-     * @param  int  $userId
-     * @return bool
-     */
-    public function is_favorite($micropostId)
+    
+     public function is_favorite($micropostId)
     {
-        // フォロー中ユーザの中に $userIdのものが存在するか
         return $this->favorites()->where('micropost_id', $micropostId)->exists();
-    }    
+    }
+
 
 }

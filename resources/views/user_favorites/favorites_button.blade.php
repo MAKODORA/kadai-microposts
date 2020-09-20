@@ -1,13 +1,13 @@
-@if (Auth::id() != $user->id)
-    @if (Auth::user()->is_favorites($user->id))
-        {{--unfavoritesボタンのフォーム --}}
-        {!! Form::open(['route' => ['user.unfavorites', $user->id], 'method' => 'delete']) !!}
-            {!! Form::submit('Unfavorites', ['class' => "btn btn-danger btn-block"]) !!}
-        {!! Form::close() !!}
-    @else
-        {{-- favoritesのフォーム --}}
-        {!! Form::open(['route' => ['user.favorites', $user->id]]) !!}
-            {!! Form::submit('favorites', ['class' => "btn btn-primary btn-block"]) !!}
-        {!! Form::close() !!}
-    @endif
+
+@if (Auth::user()->is_favorite($micropost->id))
+    {{-- unfavoritesボタンのフォーム --}}
+    {!! Form::open(['route' => ['favorites.unfavorite', $micropost->id], 'method' => 'delete']) !!}
+        {!! Form::submit('Unfavorites', ['class' => "btn btn-danger "]) !!}
+    {!! Form::close() !!}
+@else
+    {{-- favoritesのフォーム --}}
+    {!! Form::open(['route' => ['favorites.favorite', $micropost->id]]) !!}
+        {!! Form::submit('favorites', ['class' => "btn btn-primary "]) !!}
+    {!! Form::close() !!}
+    
 @endif

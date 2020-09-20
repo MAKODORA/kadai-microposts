@@ -7,6 +7,8 @@
             @include('users.card')
         </aside>
         <div class="col-sm-8">
+            {{-- タブ --}}
+            @include('users.navtabs')
         </div>
     </div>
 @endsection

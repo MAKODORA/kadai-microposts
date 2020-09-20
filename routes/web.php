@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
 
      // 追加　お気に入り機能
     Route::group(['prefix' => 'microposts/{id}'], function () {
-        Route::GET('favorite', 'FavoritesController@store')->name('favorites.favorite');
+        Route::POST('favorite', 'FavoritesController@store')->name('favorites.favorite');
         Route::delete('unfavorite', 'FavoritesController@destroy')->name('favorites.unfavorite');
     });
 
